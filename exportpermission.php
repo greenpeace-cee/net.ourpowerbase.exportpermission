@@ -67,7 +67,7 @@ function exportpermission_civicrm_searchTasks($objectName, &$tasks) {
   if (!CRM_Core_Permission::check(PDF_PERMISSION_NAME)) {
     unset($tasks[CRM_Core_Task::PDF_LETTER]);
   }
-  if (!CRM_Core_Permission::check(PRINT_PERMISSION_NAME)) {
+  if (!CRM_Core_Permission::check(PRINT_PERMISSION_NAME) && $objectName != 'case') {
     unset($tasks[CRM_Core_Task::TASK_PRINT]);
   }
   if (!CRM_Core_Permission::check(LABEL_PERMISSION_NAME)) {
